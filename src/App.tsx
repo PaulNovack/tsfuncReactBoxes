@@ -1,8 +1,9 @@
 import React from 'react'
+import { type ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 
-const App: React.FC = () => {
+function App (): ReactJSXElement {
   return (
-    <div>
+    <div className="app">
       <h1>Hello, world!</h1>
     </div>
   )
