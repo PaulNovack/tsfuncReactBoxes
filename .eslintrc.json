@@ -20,7 +20,7 @@
             "version": "18.2.0"
         }
     },
-    "rules": {
-        "@typescript-eslint/semi": "off"
-    }
+  "rules": {
+    "@typescript-eslint/semi": ["error", "never"]
+  }
 }

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-export interface AppContextIfc {
+export interface AppContextInterface {
   name: string
 }
 
-const AppContext = React.createContext<AppContextIfc>({
+const AppContext = React.createContext<AppContextInterface>({
   name: ''
-});
+})
 
-export default AppContext;
+export default AppContext
