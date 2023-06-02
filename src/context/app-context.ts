@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-export interface AppContextInterface {
+export interface UserInformationInterface {
   firstName: string
   setFirstName: (name: string) => void
   lastName: string
@@ -17,7 +17,7 @@ export interface AppContextInterface {
   setPhoneNUmber: (phoneNumber: string) => void
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const UserInformationContext = createContext<AppContextInterface>({
+const UserInformationContext = createContext<UserInformationInterface>({
   address: '',
   city: '',
   firstName: '',
@@ -40,3 +40,9 @@ const UserInformationContext = createContext<AppContextInterface>({
   state: '',
   zipCode: ''
 })
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type UserInformationContextProviderProps {
+  children: React.ReactNode
+}
+
