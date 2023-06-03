@@ -1,12 +1,21 @@
-import React from 'react'
-import { type ReactJSXElement } from '@emotion/react/types/jsx-namespace'
+import React, { type ReactElement } from 'react'
+import {
+  ExampleProvider,
+  Greet,
+  UserProvider,
+  Person
+} from './context/Application'
 
-function App (): ReactJSXElement {
+function App(): ReactElement {
   return (
-    <div className="app">
-      <h1>Hello, world!</h1>
-    </div>
+    <>
+      <ExampleProvider>
+        <Greet />
+      </ExampleProvider>
+      <UserProvider>
+        <Person />
+      </UserProvider>
+    </>
   )
 }
-
 export default App
