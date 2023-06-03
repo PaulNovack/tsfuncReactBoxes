@@ -3,7 +3,7 @@ import React, { createContext, useContext } from 'react'
 const exampleData = { username: 'Logan Novack' }
 export const ExampleContext = createContext(exampleData)
 
-interface Props {
+export interface Props {
   children: React.ReactNode
 }
 
@@ -27,15 +27,11 @@ export const Person: React.FC = () => {
       <h2>
         Hello, {user.firstName} {user.lastName}
       </h2>
+      <h2>{user.address}</h2>
       <h2>
-        {user.address}
+        {user.city}, {user.state} {user.zipCode}
       </h2>
-      <h2>
-        {user.city},  {user.state} {user.zipCode}
-      </h2>
-      <h2>
-        Phone: {user.phoneNumber}
-      </h2>
+      <h2>Phone: {user.phoneNumber}</h2>
     </div>
   )
 }
@@ -60,7 +56,7 @@ export function mustImplement(): typeof Error {
   throw new Error('Please implement this function')
 }
 
-const blankUser: User = {
+export const blankUser: User = {
   firstName: 'Paul',
   setFirstName: mustImplement,
   lastName: 'Novack',
