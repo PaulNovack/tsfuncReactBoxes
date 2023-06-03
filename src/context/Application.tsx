@@ -1,7 +1,7 @@
 import React, { createContext, useContext } from 'react'
 
-const myData = { username: 'Israel' }
-export const ExampleContext = createContext(myData)
+const exampleData = { username: 'Logan Novack' }
+export const ExampleContext = createContext(exampleData)
 
 interface Props {
   children: React.ReactNode
@@ -9,7 +9,7 @@ interface Props {
 
 export const ExampleProvider: React.FC<Props> = ({ children }) => {
   return (
-    <ExampleContext.Provider value={{ username: 'Chibuzor' }}>
+    <ExampleContext.Provider value={{ username: 'Paul Novack' }}>
       {children}
     </ExampleContext.Provider>
   )
