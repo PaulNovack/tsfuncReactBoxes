@@ -1,7 +1,6 @@
 import React from 'react'
-import { type ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 
-function Logout(): ReactJSXElement {
+function Logout() {
   return (
     <div className="app">
       <h1>Logout</h1>

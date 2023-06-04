@@ -1,7 +1,6 @@
 import React from 'react'
-import { type ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 
-function Boxes(): ReactJSXElement {
+function Boxes() {
   return (
     <div className="app">
       <h1>Boxes</h1>

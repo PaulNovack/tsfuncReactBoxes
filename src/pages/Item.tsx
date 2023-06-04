@@ -1,7 +1,6 @@
 import React from 'react'
-import { type ReactJSXElement } from '@emotion/react/types/jsx-namespace'
 
-function Item(): ReactJSXElement {
+function Item() {
   return (
     <div className="app">
       <h1>Item</h1>
