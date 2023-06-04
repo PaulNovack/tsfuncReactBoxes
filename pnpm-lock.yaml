@@ -31,6 +31,7 @@ specifiers:
   react: ^18.2.0
   react-dom: ^18.2.0
   react-router: ^6.11.2
+  react-router-dom: ^6.11.2
   react-scripts: ^5.0.1
   typescript: ^5.0.4
   web-vitals: ^2.1.4
@@ -50,6 +51,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-router: 6.11.2_react@18.2.0
+  react-router-dom: 6.11.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_5ih7rbnbqu3tyocefxirzsfyuq
   web-vitals: 2.1.4
 
@@ -9822,6 +9824,19 @@ packages:
       tslib: 2.5.2
       use-callback-ref: 1.3.0_i2bxsyfskhzbpjanbovidbfj7u
       use-sidecar: 1.1.2_i2bxsyfskhzbpjanbovidbfj7u
+    dev: false
+
+  /react-router-dom/6.11.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-JNbKtAeh1VSJQnH6RvBDNhxNwemRj7KxCzc5jb7zvDSKRnPWIFj9pO+eXqjM69gQJ0r46hSz1x4l9y0651DKWw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.6.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.11.2_react@18.2.0
     dev: false
 
   /react-router/6.11.2_react@18.2.0:
