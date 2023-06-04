@@ -2,4 +2,3 @@
 type UserInformationContextProviderProps = {
   children: React.ReactNode
 }
-
