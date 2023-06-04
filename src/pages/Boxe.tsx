@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Box() {
+function Boxe() {
   return (
     <div className="app">
-      <h1>Box</h1>
+      <h1>Boxe</h1>
     </div>
   )
 }
 
-export default Box
+export default Boxe

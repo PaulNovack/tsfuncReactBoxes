@@ -1,15 +1,14 @@
 export interface UserData {
   first_name: string
   last_name: string
-  age?: number
-  isAdmin?: boolean
+  token: string | null
+
 }
 
-const User: UserData = {
+export const User: UserData = {
   first_name: '',
   last_name: '',
-  age: 0,
-  isAdmin: false
+  token: null
 }
 
 export default User
