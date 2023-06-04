@@ -17,6 +17,7 @@
     "@types/node": "^16.18.34",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",
+    "chakra-ui": "^0.3.9",
     "framer-motion": "^10.12.16",
     "plugin-syntax-flow": "0.0.1-security",
     "react": "^18.2.0",
