@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { ChakraProvider, Box, HStack } from '@chakra-ui/react'
 import Home from './pages/Home'
@@ -11,27 +11,24 @@ import Item from './pages/Item'
 import UserProvider, { UserContext } from './context/UserContext'
 
 function UserDetails() {
-
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext)
   return (
     <>
-      <p>User Name:</p>
-      <p>User Email: </p>
+      <p>User Name: {user.name}</p>
+      <p>User Email: {user.email}</p>
     </>
   )
 }
-function AnotherComponent() {
-
-  const {user, setUser} = useContext(UserContext)
+function GetUserData() {
+  const { user, setUser } = useContext(UserContext)
   useEffect(() => {
     setUser({
-      name: "Paul Novack",
-      email: 'paul.novack@gmail.com'
+      name: 'Paul Novack',
+      email: 'paul.novack@gmail.com',
     })
   })
   return (
     <>
-      <p>Some Other Component</p>
     </>
   )
 }
@@ -40,8 +37,6 @@ function App() {
   return (
     <ChakraProvider>
       <UserProvider>
-        <UserDetails />.
-        <AnotherComponent />
         <BrowserRouter>
           <div className="app">
             <HStack>
@@ -58,6 +53,8 @@ function App() {
                 <Link to={'/boxes'}>Boxes</Link>
               </Box>
             </HStack>
+            <hr />
+            <br />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
@@ -67,6 +64,8 @@ function App() {
               <Route path="/items" element={<Items />} />
               <Route path="/item" element={<Item />} />
             </Routes>
+            <UserDetails />.
+            <GetUserData />
           </div>
         </BrowserRouter>
       </UserProvider>
