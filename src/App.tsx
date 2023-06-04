@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { ChakraProvider, Box, HStack } from '@chakra-ui/react'
 import Home from './pages/Home'
@@ -8,10 +8,10 @@ import Boxes from './pages/Boxes'
 import Boxe from './pages/Boxe'
 import Items from './pages/Items'
 import Item from './pages/Item'
-import { UserContext } from './context/UserContext'
+
 
 function App() {
-  const { user, setUser } = useContext(UserContext)
+
   return (
     <ChakraProvider>
       <BrowserRouter>

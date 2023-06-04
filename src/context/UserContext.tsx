@@ -15,6 +15,8 @@ const defaultState = {
     name: '',
     email: '',
   },
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
   setUser: (user: User) => {},
 } as UserContextInterface
 //export const UserContext = createContext<Partial<UserContextInterface>>({})
@@ -22,13 +24,16 @@ const defaultState = {
 type UserProviderProps = {
   children: React.ReactNode
 }
-export const UserContext = createContext<UserContextInterface>(defaultState)
+export const UserContext = createContext(defaultState)
 
-function UserProvider() {
-  //  const [uesr,setUser] = userState<User>()
-  //  return (
-  //      <UserContext.Provider value ={{ user,setUser}}>
-  //  {childrem}
-  //  </UserContext.Provider>
-  //  )
+export default function UserProvider({ children }: UserProviderProps) {
+  const [user, setUser] = useState<User>({
+    name: '',
+    email: '',
+  })
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  )
 }
