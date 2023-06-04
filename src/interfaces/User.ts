@@ -7,7 +7,7 @@ export interface User {
 export const blankUser: User = {
   first_name: '',
   last_name: '',
-  token: null
+  token: null,
 }
 
 export default User
