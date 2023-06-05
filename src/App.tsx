@@ -12,12 +12,14 @@ import UserProvider, { UserContext } from './context/UserContext'
 function GetUserData() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { user, setUser } = useContext(UserContext)
-  useEffect(() => {
-    setUser({
-      name: 'Paul Novack',
-      email: 'paul.novack@gmail.com',
+  if(user.name == ''){
+    useEffect(() => {
+      setUser({
+        name: 'Paul Novack',
+        email: 'paul.novack@gmail.com',
+      })
     })
-  })
+  }
   return <></>
 }
 
