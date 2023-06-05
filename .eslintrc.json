@@ -10,7 +10,9 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": ["./tsconfig.json"]
+        "project": [
+            "./tsconfig.json"
+        ]
     },
     "plugins": [
         "react"
@@ -20,15 +22,27 @@
             "version": "18.2.0"
         }
     },
-  "rules": {
-    "@typescript-eslint/semi": ["error", "never"],
-    "@typescript-eslint/no-empty-function": ["off", { "allow": ["private-constructors"] }],
-    "@typescript-eslint/naming-convention": [
-        "error",
-        {
-            "selector": "variable",
-            "format": ["camelCase"]
-        }
-    ]
-  }
+    "rules": {
+        "@typescript-eslint/semi": [
+            "error",
+            "never"
+        ],
+        "@typescript-eslint/no-empty-function": [
+            "off",
+            {
+                "allow": [
+                    "private-constructors"
+                ]
+            }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "function",
+                "format": [
+                    "PascalCase"
+                ]
+            }
+        ]
+    }
 }
