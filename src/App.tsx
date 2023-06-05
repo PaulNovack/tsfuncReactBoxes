@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import { ChakraProvider, Box, HStack } from '@chakra-ui/react'
+import { ChakraProvider, HStack, Flex, Button } from '@chakra-ui/react'
 import Home from './pages/Home'
 import Login from './pages/Login'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -23,39 +23,47 @@ function App() {
   const { user } = useContext(UserContext)
   return (
     <ChakraProvider>
-      <UserProvider>
-        <BrowserRouter>
-          <div className="app">
-            <HStack>
-              <Box>
-                <Link to={'/'}>Home</Link>
-              </Box>
+      <Flex
+        flexDirection="column"
+        width="100wh"
+        height="100vh"
+        backgroundColor="gray.200"
+        alignItems="left"
+      >
+        <UserProvider>
+          <BrowserRouter>
+            <div className="app">
+              <HStack className="topNav">
+                <Button margin="1rem" colorScheme="teal">
+                  <Link to={'/'}>Home</Link>
+                </Button>
 
-              {!user.accessToken ? (
-                <Box>
-                  <Link to={'/login'}>Login</Link>
-                </Box>
-              ) : (
-                <Box>
-                  <Link to={'/logout'}>Logout</Link>
-                </Box>
-              )}
-            </HStack>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              {/*
+                {!user.accessToken ? (
+                  <Button colorScheme="teal">
+                    <Link to={'/login'}>Login</Link>
+                  </Button>
+                ) : (
+                  <Button colorScheme="teal">
+                    <Link to={'/logout'}>Logout</Link>
+                  </Button>
+                )}
+              </HStack>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                {/*
               <Route path="/logout" element={<Logout />} />
               <Route path="/boxes" element={<Boxes />} />
               <Route path="/box" element={<Boxe />} />
               <Route path="/items" element={<Items />} />
               <Route path="/item" element={<Item />} />
               */}
-            </Routes>
-            <GetUserData />
-          </div>
-        </BrowserRouter>
-      </UserProvider>
+              </Routes>
+              <GetUserData />
+            </div>
+          </BrowserRouter>
+        </UserProvider>
+      </Flex>
     </ChakraProvider>
   )
 }
