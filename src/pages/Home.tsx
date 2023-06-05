@@ -1,11 +1,7 @@
 import React from 'react'
-import {
-  Heading,
-  Stack,
-  Image,
-  Box,
-} from '@chakra-ui/react'
+import { Heading, Stack, Image, Box } from '@chakra-ui/react'
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const Home = () => {
   return (
     <>

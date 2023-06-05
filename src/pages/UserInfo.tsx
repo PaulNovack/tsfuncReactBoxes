@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
   Heading,
   Input,
@@ -14,6 +14,7 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
 const UserInfo = () => {
   const [showPassword, setShowPassword] = useState(false)
 

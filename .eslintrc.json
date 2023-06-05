@@ -21,6 +21,14 @@
         }
     },
   "rules": {
-    "@typescript-eslint/semi": ["error", "never"]
+    "@typescript-eslint/semi": ["error", "never"],
+    "@typescript-eslint/no-empty-function": ["off", { "allow": ["private-constructors"] }],
+    "@typescript-eslint/naming-convention": [
+        "error",
+        {
+            "selector": "variable",
+            "format": ["camelCase"]
+        }
+    ]
   }
 }
