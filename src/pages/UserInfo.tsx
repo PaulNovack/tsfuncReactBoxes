@@ -14,7 +14,7 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 
-const Login = () => {
+const UserInfo = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   const handleShowClick = () => setShowPassword(!showPassword)
@@ -85,4 +85,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default UserInfo

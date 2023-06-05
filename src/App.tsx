@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Logout from './pages/Logout'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import UserInfo from './pages/UserInfo'
 import UserProvider, { UserContext } from './context/UserContext'
 
 function GetUserData() {
@@ -57,6 +59,7 @@ function App() {
               <Route path="/box" element={<Boxe />} />
               <Route path="/items" element={<Items />} />
               <Route path="/item" element={<Item />} />
+              <Route path="/userinfo" element={<UserInfo />} />
               */}
               </Routes>
               <GetUserData />
