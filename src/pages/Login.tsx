@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
   Heading,
   Input,
@@ -11,12 +11,27 @@ import {
   FormControl,
   InputRightElement,
 } from '@chakra-ui/react'
+import { APIEndPointsContext } from '../context/APIContext'
+import {UserContext} from "../context/UserContext"
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
-
+  const { apiEndPoints } = useContext(APIEndPointsContext)
+  const {user,setUser } = useContext(UserContext)
   const handleShowClick = () => setShowPassword(!showPassword)
+  const handleLoginClick = () => {
+    console.log("Users Context Data: ", user)
+    fetch(apiEndPoints.login) // Replace with your API endpoint
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          setUser(data)
+        })
+        .catch(error => {
+          console.error('Error:', error)
+        })
+  }
 
   return (
     <>
@@ -29,7 +44,7 @@ const Login = () => {
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome</Heading>
         <Box minW={{ base: '90%', md: '468px' }}>
-          <form>
+
             <Stack
               spacing={4}
               p="1rem"
@@ -61,11 +76,11 @@ const Login = () => {
                 variant="solid"
                 colorScheme="teal"
                 width="full"
+                onClick={handleLoginClick}
               >
                 Login
               </Button>
             </Stack>
-          </form>
         </Box>
         <Box
           padding="0.5rem"

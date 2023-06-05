@@ -3,11 +3,18 @@ import { createContext, useState, Dispatch, SetStateAction } from 'react'
 export type User = {
   name: string
   email: string
-  address?: string
-  city?: string
-  state?: string
-  zipCode?: string
+  age?: number
+  toAddress?: string
+  toCity?: string
+  toState?: string
+  toZipCode?: string
+  fromAddress?: string
+  fromCity?: string
+  fromState?: string
+  fromZipCode?: string
+  cellPhone?: string
   accessToken?: string | null
+  completeed?:number
   Boxes?: Boxes[] | null
 }
 
@@ -57,7 +64,6 @@ export default function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<User>({
     name: '',
     email: '',
-    accessToken: null,
   })
   return (
     <UserContext.Provider value={{ user, setUser }}>
