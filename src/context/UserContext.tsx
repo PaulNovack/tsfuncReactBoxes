@@ -1,8 +1,8 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
 
 export type User = {
-  name: string
-  email: string
+  name?: string
+  email?: string
   age?: number
   toAddress?: string
   toCity?: string
@@ -14,7 +14,7 @@ export type User = {
   fromZipCode?: string
   cellPhone?: string
   accessToken?: string | null
-  completeed?:number
+  completeed?: number
   Boxes?: Boxes[] | null
 }
 
@@ -42,12 +42,8 @@ export interface UserContextInterface {
   setUser: Dispatch<SetStateAction<User>>
 }
 
-const defaultState = {
-  user: {
-    name: '',
-    email: '',
-    accessToken: '',
-  },
+export const defaultUserState = {
+  user: {},
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
   setUser: (user: User) => {},
@@ -58,13 +54,10 @@ type UserProviderProps = {
   children: React.ReactNode
 }
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext(defaultState)
+export const UserContext = createContext(defaultUserState)
 
 export default function UserProvider({ children }: UserProviderProps) {
-  const [user, setUser] = useState<User>({
-    name: '',
-    email: '',
-  })
+  const [user, setUser] = useState<User>({})
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {children}

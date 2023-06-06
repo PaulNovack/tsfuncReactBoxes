@@ -1,75 +1,31 @@
-import React, { useContext, useEffect } from 'react'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import { ChakraProvider, HStack, Flex, Button } from '@chakra-ui/react'
-import Home from './pages/Home'
-import Login from './pages/Login'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import Logout from './pages/Logout'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import UserInfo from './pages/UserInfo'
-import UserProvider, { UserContext } from './context/UserContext'
+import React from 'react'
+import { BrowserRouter, } from 'react-router-dom'
+import { ChakraProvider, Flex } from '@chakra-ui/react'
+import UserProvider from './context/UserContext'
+import AppRoutes from './components/AppRoutes'
+import AppNavigation from './components/AppNavigation'
 
-function GetUserData() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { user, setUser } = useContext(UserContext)
-  if (user.name == '') {
-    useEffect(() => {
-      setUser({
-        name: 'Paul Novack',
-        email: 'paul.novack@gmail.com',
-      })
-    })
-  }
-  return <></>
-}
 
 function App() {
-  const { user } = useContext(UserContext)
   return (
-    <ChakraProvider>
-      <Flex
-        flexDirection="column"
-        width="100wh"
-        height="100vh"
-        backgroundColor="gray.200"
-        alignItems="left"
-      >
-        <UserProvider>
+    <UserProvider>
+      <ChakraProvider>
+        <Flex
+          flexDirection="column"
+          width="100wh"
+          height="100vh"
+          backgroundColor="gray.200"
+          alignItems="left"
+        >
           <BrowserRouter>
             <div className="app">
-              <HStack className="topNav">
-                <Button margin="1rem" colorScheme="teal">
-                  <Link to={'/'}>Home</Link>
-                </Button>
-
-                {!user.accessToken ? (
-                  <Button colorScheme="teal">
-                    <Link to={'/login'}>Login</Link>
-                  </Button>
-                ) : (
-                  <Button colorScheme="teal">
-                    <Link to={'/logout'}>Logout</Link>
-                  </Button>
-                )}
-              </HStack>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                {/*
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/boxes" element={<Boxes />} />
-              <Route path="/box" element={<Boxe />} />
-              <Route path="/items" element={<Items />} />
-              <Route path="/item" element={<Item />} />
-              <Route path="/userinfo" element={<UserInfo />} />
-              */}
-              </Routes>
-              <GetUserData />
+              <AppNavigation/>
+              <AppRoutes />
             </div>
           </BrowserRouter>
-        </UserProvider>
-      </Flex>
-    </ChakraProvider>
+        </Flex>
+      </ChakraProvider>
+    </UserProvider>
   )
 }
 
