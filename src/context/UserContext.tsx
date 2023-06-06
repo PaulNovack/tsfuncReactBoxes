@@ -1,4 +1,7 @@
-import { createContext, useState, Dispatch, SetStateAction ,ReactNode} from 'react'
+import {
+  createContext,
+  useState
+} from 'react'
 
 export type UserIfc = {
   name?: string
@@ -35,7 +38,7 @@ export interface ItemsIfc {
   quantity?: number | null
   picture?: string | null
   created_at?: string | null
-  setUser: React.Dispatch<React.SetStateAction<UserIfc>>;
+  setUser: React.Dispatch<React.SetStateAction<UserIfc>>
 }
 
 export interface UserContextType {
@@ -48,12 +51,17 @@ type UserProviderProps = {
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext<UserContextType | undefined>(undefined)
+export const UserContext = createContext<UserContextType>({
+  user: { name: '' },
+  setUser: () => {},
+})
 
-export const UserContextProvider: React.FC = ({children}: UserProviderProps) => {
+export const UserContextProvider: React.FC = ({
+  children,
+}: UserProviderProps) => {
   const [user, setUser] = useState({})
 
-  const updateUser= (newUser: UserIfc) => {
+  const updateUser = (newUser: UserIfc) => {
     setUser(newUser)
   }
 
@@ -63,8 +71,6 @@ export const UserContextProvider: React.FC = ({children}: UserProviderProps) => 
   }
 
   return (
-      <UserContext.Provider value={contextValue}>
-        {children}
-      </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   )
 }

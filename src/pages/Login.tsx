@@ -12,17 +12,16 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
-import { UserContext } from '../context/UserContext'
-import {LevelContext} from "../context/LevelContext"
+import { UserContext, UserIfc } from '../context/UserContext'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
-  const user = useContext(UserContext)
-  if(user  && user.name){
-    console.log('User Here: ', user.name)
-  }
+  const { user, setUser }  = useContext(UserContext)
+  const [userLocal, setUserLocal] = useState<UserIfc>({})
+
+
 
   useEffect(() => {
     // This effect will run whenever the myContext value changes
@@ -36,16 +35,20 @@ const Login = () => {
     fetch(apiEndPoints.login) // Replace with your API endpoint
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        //setUser(data)
+        console.log("data: ",data)
+        setUser(data)
+        setUserLocal(data ? data : '')
       })
       .catch((error) => {
         console.error('Error:', error)
       })
   }
+  if (!UserContext.Provider) {
+    return <div></div>
+  }
 
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{user,setUser}}>
       <Stack
         flexDir="column"
         mb="2"
@@ -88,7 +91,7 @@ const Login = () => {
               width="full"
               onClick={handleLoginClick}
             >
-              Login {user  && user.name ? user.name:null}
+              Login
             </Button>
           </Stack>
         </Box>
@@ -101,6 +104,14 @@ const Login = () => {
           Demo Mode a login will automatically be created if it does not exist
           for the Email entered.
         </Box>
+        <Box
+            padding="0.5rem"
+            color="teal.600"
+            minW={{ base: '90%', md: '468px' }}
+            maxW={{ base: '90%', md: '468px' }}
+        >
+        {userLocal.name}
+      </Box>
       </Stack>
     </UserContext.Provider>
   )
