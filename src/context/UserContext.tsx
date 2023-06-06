@@ -1,6 +1,6 @@
-import { createContext, useState, Dispatch, SetStateAction } from 'react'
+import { createContext, useState, Dispatch, SetStateAction ,ReactNode} from 'react'
 
-export type User = {
+export type UserIfc = {
   name?: string
   email?: string
   age?: number
@@ -14,53 +14,57 @@ export type User = {
   fromZipCode?: string
   cellPhone?: string
   accessToken?: string | null
-  completeed?: number
-  Boxes?: Boxes[] | null
+  completed?: number
+  Boxes?: BoxesIfc[] | null
 }
 
-export interface Boxes {
+export interface BoxesIfc {
   id: number
   name?: string | null
   description: string | null
   picture?: string | null
   weight?: number | null
   created_at?: string | null
-  items: Items[] | null
+  items: ItemsIfc[] | null
 }
 
-export interface Items {
+export interface ItemsIfc {
   id: number
   name?: string | null
   description?: string | null
   quantity?: number | null
   picture?: string | null
   created_at?: string | null
+  setUser: React.Dispatch<React.SetStateAction<UserIfc>>;
 }
 
-export interface UserContextInterface {
-  user: User
-  setUser: Dispatch<SetStateAction<User>>
+export interface UserContextType {
+  user: UserIfc
+  setUser: (newUser: UserIfc) => void
 }
-
-export const defaultUserState = {
-  user: {},
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
-  setUser: (user: User) => {},
-} as UserContextInterface
-//export const UserContext = createContext<Partial<UserContextInterface>>({})
 
 type UserProviderProps = {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext(defaultUserState)
 
-export default function UserProvider({ children }: UserProviderProps) {
-  const [user, setUser] = useState<User>({})
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const UserContext = createContext<UserContextType | undefined>(undefined)
+
+export const UserContextProvider: React.FC = ({children}: UserProviderProps) => {
+  const [user, setUser] = useState({})
+
+  const updateUser= (newUser: UserIfc) => {
+    setUser(newUser)
+  }
+
+  const contextValue: UserContextType = {
+    user,
+    setUser: updateUser,
+  }
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      {children}
-    </UserContext.Provider>
+      <UserContext.Provider value={contextValue}>
+        {children}
+      </UserContext.Provider>
   )
 }

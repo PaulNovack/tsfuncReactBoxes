@@ -13,13 +13,17 @@ import {
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
 import { UserContext } from '../context/UserContext'
+import {LevelContext} from "../context/LevelContext"
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
-  const { user, setUser } = useContext(UserContext)
-  console.log('User Here: ', user.name)
+  const user = useContext(UserContext)
+  if(user  && user.name){
+    console.log('User Here: ', user.name)
+  }
+
   useEffect(() => {
     // This effect will run whenever the myContext value changes
     // and trigger a re-render by updating the forceUpdate state.
@@ -33,7 +37,7 @@ const Login = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        setUser(data)
+        //setUser(data)
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -41,7 +45,7 @@ const Login = () => {
   }
 
   return (
-    <>
+    <UserContext.Provider value={user}>
       <Stack
         flexDir="column"
         mb="2"
@@ -84,7 +88,7 @@ const Login = () => {
               width="full"
               onClick={handleLoginClick}
             >
-              Login {user.name}
+              Login {user  && user.name ? user.name:null}
             </Button>
           </Stack>
         </Box>
@@ -98,7 +102,7 @@ const Login = () => {
           for the Email entered.
         </Box>
       </Stack>
-    </>
+    </UserContext.Provider>
   )
 }
 

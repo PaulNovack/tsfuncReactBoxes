@@ -1,14 +1,21 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import { BrowserRouter, } from 'react-router-dom'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-import UserProvider from './context/UserContext'
+import  {UserIfc} from './context/UserContext'
 import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
 
 
 function App() {
+  const [ user, setUser ] = useState({id:1,name: "Paul Novack"})
+  const userContextValue: UserIfc = {id: 0}
+  if(userContextValue.id == 0){
+    //  const userContextnew: UserIfc = {id: 1,name: "Paul Novack"}
+    //  setUser(userContextnew)
+  }
+
   return (
-    <UserProvider>
+
       <ChakraProvider>
         <Flex
           flexDirection="column"
@@ -25,7 +32,6 @@ function App() {
           </BrowserRouter>
         </Flex>
       </ChakraProvider>
-    </UserProvider>
   )
 }
 
