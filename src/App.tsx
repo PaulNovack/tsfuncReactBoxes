@@ -1,10 +1,16 @@
 import React, { useMemo } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-
-import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
 import UserContext, { UserContextState, UserIfc } from './context/UserContext'
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Logout from "./pages/Logout"
+import Boxes from "./pages/Boxes"
+import Boxe from "./pages/Boxe"
+import Items from "./pages/Items"
+import Item from "./pages/Item"
+import UserInfo from "./pages/UserInfo"
 
 function App() {
   const contextValue: UserContextState = useMemo(() => {
@@ -28,7 +34,16 @@ function App() {
             <BrowserRouter>
               <div className="app">
                 <AppNavigation />
-                <AppRoutes />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/logout" element={<Logout />} />
+                  <Route path="/boxes" element={<Boxes />} />
+                  <Route path="/box" element={<Boxe />} />
+                  <Route path="/items" element={<Items />} />
+                  <Route path="/item" element={<Item />} />
+                  <Route path="/userinfo" element={<UserInfo />} />
+                </Routes>
               </div>
             </BrowserRouter>
           </Flex>
