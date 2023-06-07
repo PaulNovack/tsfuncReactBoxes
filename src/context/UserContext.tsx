@@ -1,76 +1,67 @@
-import {
-  createContext,
-  useState
-} from 'react'
+import React, { createContext, useState } from 'react'
+
+export function MustImplement() {
+  throw new Error('Please implement this function')
+}
 
 export type UserIfc = {
-  name?: string
-  email?: string
-  age?: number
-  toAddress?: string
-  toCity?: string
-  toState?: string
-  toZipCode?: string
-  fromAddress?: string
-  fromCity?: string
-  fromState?: string
-  fromZipCode?: string
-  cellPhone?: string
-  accessToken?: string | null
-  completed?: number
-  Boxes?: BoxesIfc[] | null
+  name?: string | undefined;
+  email?: string | undefined;
+  age?: number | undefined;
+  toAddress?: string | undefined;
+  toCity?: string | undefined;
+  toState?: string | undefined;
+  toZipCode?: string | undefined;
+  fromAddress?: string | undefined;
+  fromCity?: string | undefined;
+  fromState?: string | undefined;
+  fromZipCode?: string | undefined;
+  cellPhone?: string | undefined;
+  accessToken?: string | undefined;
+  completed?: number | undefined;
+  Boxes?: BoxesIfc[] | undefined;
 }
 
 export interface BoxesIfc {
-  id: number
-  name?: string | null
-  description: string | null
-  picture?: string | null
-  weight?: number | null
-  created_at?: string | null
-  items: ItemsIfc[] | null
+  id: number;
+  name?: string | null;
+  description: string | null;
+  picture?: string | null;
+  weight?: number | null;
+  created_at?: string | null;
+  items: ItemsIfc[] | null;
 }
 
 export interface ItemsIfc {
-  id: number
-  name?: string | null
-  description?: string | null
-  quantity?: number | null
-  picture?: string | null
-  created_at?: string | null
-  setUser: React.Dispatch<React.SetStateAction<UserIfc>>
+  id: number;
+  name?: string | null;
+  description?: string | null;
+  quantity?: number | null;
+  picture?: string | null;
+  created_at?: string | null;
+  setUser: React.Dispatch<React.SetStateAction<UserIfc>>;
 }
 
-export interface UserContextType {
-  user: UserIfc
-  setUser: (newUser: UserIfc) => void
+export type UserContextState = {
+  user: UserIfc;
+  setUser: React.Dispatch<React.SetStateAction<UserIfc>>;
 }
 
-type UserProviderProps = {
-  children?: React.ReactNode
-}
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext<UserContextType>({
-  user: { name: '' },
+export const initialUserContextState: UserContextState = {
+  user: {},
   setUser: () => {},
-})
+}
 
-export const UserContextProvider: React.FC = ({
-  children,
-}: UserProviderProps) => {
-  const [user, setUser] = useState({})
+const UserContext = createContext<UserContextState>(initialUserContextState)
 
-  const updateUser = (newUser: UserIfc) => {
-    setUser(newUser)
-  }
-
-  const contextValue: UserContextType = {
-    user,
-    setUser: updateUser,
-  }
+export const UserContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [user, setUser] = useState<UserIfc>({})
 
   return (
-    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
+      <UserContext.Provider value={{ user, setUser }}>
+        {children}
+      </UserContext.Provider>
   )
 }
+
+export default UserContext
