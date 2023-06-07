@@ -10,7 +10,13 @@ import Item from '../pages/Item'
 import UserInfo from '../pages/UserInfo'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const AppRoutes = ({ LoginFunc }: { LoginFunc: () => void }) => {
+const AppRoutes = ({
+  LoginFunc,
+  onUserInfoSubmit,
+}: {
+  LoginFunc: () => void
+  onUserInfoSubmit: () => void
+}) => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -20,7 +26,10 @@ const AppRoutes = ({ LoginFunc }: { LoginFunc: () => void }) => {
       <Route path="/box" element={<Boxe />} />
       <Route path="/items" element={<Items />} />
       <Route path="/item" element={<Item />} />
-      <Route path="/userinfo" element={<UserInfo />} />
+      <Route
+        path="/userinfo"
+        element={<UserInfo onUserInfoSubmit={onUserInfoSubmit} />}
+      />
     </Routes>
   )
 }

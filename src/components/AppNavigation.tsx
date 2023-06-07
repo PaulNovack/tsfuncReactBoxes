@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button, HStack, Text } from '@chakra-ui/react'
@@ -7,6 +7,9 @@ import { UserIfc } from '../context/UserContext'
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const AppNavigation = () => {
   const [user, setUser] = useState<UserIfc>({})
+  useEffect(() => {
+    console.log('Updated User Info displayed from AppNavigation')
+  }, [user])
   return (
     <HStack className="topNav">
       <Button margin="1rem" colorScheme="teal">

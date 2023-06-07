@@ -21,6 +21,18 @@ function App() {
         console.error('Error:', error)
       })
   }
+  const UserInfoFunc = () => {
+    console.log('Users Context Data: ', user)
+    fetch(apiEndPoints.login) // Replace with your API endpoint
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setUser(data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }
   return (
     <UserProvider>
       <ChakraProvider>
@@ -34,7 +46,10 @@ function App() {
           <BrowserRouter>
             <div className="app">
               <AppNavigation />
-              <AppRoutes LoginFunc={LoginFunc} />
+              <AppRoutes
+                LoginFunc={LoginFunc}
+                onUserInfoSubmit={UserInfoFunc}
+              />
             </div>
           </BrowserRouter>
         </Flex>

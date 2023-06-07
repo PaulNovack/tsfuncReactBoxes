@@ -1,88 +1,139 @@
-import React, { useState } from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {
-  Heading,
+  FormControl,
+  FormLabel,
   Input,
   Button,
-  InputGroup,
-  Stack,
-  InputLeftElement,
-  Box,
-  Link,
-  Avatar,
-  FormControl,
-  FormHelperText,
-  InputRightElement,
+  VStack,
 } from '@chakra-ui/react'
+import {UserContext, UserIfc} from "../context/UserContext"
+import {APIEndPointsContext} from "../context/APIContext"
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const UserInfo = () => {
-  const [showPassword, setShowPassword] = useState(false)
 
-  const handleShowClick = () => setShowPassword(!showPassword)
+
+const UserInfo = ({onUserInfoSubmit}:{onUserInfoSubmit: (user: UserIfc) => void}) => {
+  const { apiEndPoints } = useContext(APIEndPointsContext)
+  const { user, setUser } = useContext(UserContext)
+  const [userLocal, setUserLocal] = useState<UserIfc>({})
+  const [prevUserLocal, setPrevUserLocal] = useState<UserIfc>({})
+  useEffect(() => {
+    if (user.name != '') {
+      setUserLocal(user)
+      if(prevUserLocal.name == ''){
+        setPrevUserLocal(user)
+      }
+    }
+  }, [user])
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    onUserInfoSubmit(user)
+  }
 
   return (
-    <>
-      <Stack
-        flexDir="column"
-        mb="2"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
-        <Box minW={{ base: '90%', md: '468px' }}>
-          <form>
-            <Stack
-              spacing={4}
-              p="1rem"
-              backgroundColor="whiteAlpha.900"
-              boxShadow="md"
-            >
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" />
-                  <Input type="email" placeholder="email address" />
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none" color="gray.300" />
-                  <Input
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? 'Hide' : 'Show'}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
-                </FormHelperText>
-              </FormControl>
-              <Button
-                type="submit"
-                variant="solid"
-                colorScheme="teal"
-                width="full"
-              >
-                Login
-              </Button>
-            </Stack>
-          </form>
-        </Box>
-        <Box
-          padding="0.5rem"
-          color="teal.600"
-          minW={{ base: '90%', md: '468px' }}
-          maxW={{ base: '90%', md: '468px' }}
-        >
-          Demo Mode a login will automatically be created if it does not exist
-          for the Email entered.
-        </Box>
-      </Stack>
-    </>
+      <form onSubmit={handleSubmit}>
+        <VStack spacing={4} align="start">
+          <FormControl>
+            <FormLabel>Username</FormLabel>
+            <Input
+                type="text"
+                name="name"
+                value={user.name}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>From Address</FormLabel>
+            <Input
+                type="text"
+                name="fromAddress"
+                value={user.fromAddress}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>From City</FormLabel>
+            <Input
+                type="text"
+                name="fromCity"
+                value={user.fromCity}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>From State</FormLabel>
+            <Input
+                type="text"
+                name="fromState"
+                value={user.fromState}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>From Zip Code</FormLabel>
+            <Input
+                type="text"
+                name="fromZipCode"
+                value={user.fromZipCode}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>To Address</FormLabel>
+            <Input
+                type="text"
+                name="toAddress"
+                value={user.toAddress}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>To City</FormLabel>
+            <Input
+                type="text"
+                name="toCity"
+                value={user.toCity}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>To State</FormLabel>
+            <Input
+                type="text"
+                name="toState"
+                value={user.toState}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>To Zip Code</FormLabel>
+            <Input
+                type="text"
+                name="toZipCode"
+                value={user.toZipCode}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <FormControl>
+            <FormLabel>Cell Phone</FormLabel>
+            <Input
+                type="text"
+                name="cellPhone"
+                value={user.cellPhone}
+                onChange={handleChange}
+            />
+          </FormControl>
+          <Button type="submit">Submit</Button>
+        </VStack>
+      </form>
   )
 }
 
