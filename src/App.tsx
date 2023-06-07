@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-import UserProvider from './context/UserContext'
+import UserProvider, { UserContext } from './context/UserContext'
 import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
+import { APIEndPointsContext } from './context/APIContext'
 
 function App() {
+  const { apiEndPoints } = useContext(APIEndPointsContext)
+  const { user, setUser } = useContext(UserContext)
+  const LoginFunc = () => {
+    console.log('Users Context Data: ', user)
+    fetch(apiEndPoints.login) // Replace with your API endpoint
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setUser(data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }
   return (
     <UserProvider>
       <ChakraProvider>
@@ -19,7 +34,7 @@ function App() {
           <BrowserRouter>
             <div className="app">
               <AppNavigation />
-              <AppRoutes />
+              <AppRoutes LoginFunc={LoginFunc} />
             </div>
           </BrowserRouter>
         </Flex>

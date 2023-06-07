@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Boxes() {
+function BoxList() {
   return (
     <div className="app">
       <h1>Boxes</h1>
@@ -8,4 +8,4 @@ function Boxes() {
   )
 }
 
-export default Boxes
+export default BoxList

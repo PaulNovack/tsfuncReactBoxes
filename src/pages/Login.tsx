@@ -12,33 +12,24 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
-import { UserContext } from '../context/UserContext'
+import {UserContext, UserIfc} from '../context/UserContext'
 import {useFetch} from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const Login = () => {
+const Login = ({Login}:{Login: () => void}) => {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
+  const [ localUser, setLocalUser] = useState<UserIfc>({})
   console.log('User Here: ', user.name)
   useEffect(() => {
-    // This effect will run whenever the myContext value changes
-    // and trigger a re-render by updating the forceUpdate state.
-    console.log('UpdateForced 2')
-    console.log(user)
+    console.log('user: ', user)
+
   }, [user])
   const handleShowClick = () => setShowPassword(!showPassword)
   const handleLoginClick = () => {
-    console.log('Users Context Data: ', user)
-    fetch(apiEndPoints.login) // Replace with your API endpoint
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        setUser(data)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+    Login()
+    setLocalUser(user)
   }
 
   return (
