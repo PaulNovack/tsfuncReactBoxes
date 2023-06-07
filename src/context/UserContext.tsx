@@ -1,6 +1,6 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
 
-export type User = {
+export interface User  {
   name?: string
   email?: string
   age?: number
@@ -14,7 +14,7 @@ export type User = {
   fromZipCode?: string
   cellPhone?: string
   accessToken?: string | null
-  completeed?: number
+  completed?: number
   Boxes?: Boxes[] | null
 }
 

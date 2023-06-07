@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter, } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
 import UserProvider from './context/UserContext'
 import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
-
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
         >
           <BrowserRouter>
             <div className="app">
-              <AppNavigation/>
+              <AppNavigation />
               <AppRoutes />
             </div>
           </BrowserRouter>

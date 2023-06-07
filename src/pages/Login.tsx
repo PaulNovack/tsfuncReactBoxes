@@ -13,6 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
 import { UserContext } from '../context/UserContext'
+import {useFetch} from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Login = () => {
@@ -57,7 +58,9 @@ const Login = () => {
             backgroundColor="whiteAlpha.900"
             boxShadow="md"
           >
+            <form>
             <FormControl>
+
               <InputGroup>
                 <InputLeftElement pointerEvents="none" />
                 <Input type="email" placeholder="email address" />
@@ -69,6 +72,7 @@ const Login = () => {
                 <Input
                   type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
+                  autoComplete='password'
                 />
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={handleShowClick}>
@@ -76,7 +80,9 @@ const Login = () => {
                   </Button>
                 </InputRightElement>
               </InputGroup>
+
             </FormControl>
+            </form>
             <Button
               type="submit"
               variant="solid"

@@ -1,20 +1,18 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button, HStack, Text } from '@chakra-ui/react'
-import {User} from '../context/UserContext'
-
+import { User } from '../context/UserContext'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const AppNavigation = () => {
-  const [user,setUser] = useState<User>({})
+  const [user, setUser] = useState<User>({})
   return (
-
     <HStack className="topNav">
       <Button margin="1rem" colorScheme="teal">
         <Link to={'/'}>Home {user.name}</Link>
       </Button>
-        <Text>{user.name}</Text>
+      <Text>{user.name}</Text>
       {user.name === undefined ? (
         <>
           <Button colorScheme="teal">
@@ -36,7 +34,6 @@ const AppNavigation = () => {
         </>
       )}
     </HStack>
-
   )
 }
 
