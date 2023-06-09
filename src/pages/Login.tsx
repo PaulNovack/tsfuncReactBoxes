@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
 import { UserContext } from '../context/UserContext'
-import {useFetch} from 'use-http'
+import { useFetch } from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const Login = () => {
@@ -59,29 +59,27 @@ const Login = () => {
             boxShadow="md"
           >
             <form>
-            <FormControl>
-
-              <InputGroup>
-                <InputLeftElement pointerEvents="none" />
-                <Input type="email" placeholder="email address" />
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <InputGroup>
-                <InputLeftElement pointerEvents="none" color="gray.300" />
-                <Input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
-                  autoComplete='password'
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                    {showPassword ? 'Hide' : 'Show'}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-
-            </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none" />
+                  <Input type="email" placeholder="email address" />
+                </InputGroup>
+              </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none" color="gray.300" />
+                  <Input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Password"
+                    autoComplete="password"
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                      {showPassword ? 'Hide' : 'Show'}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
             </form>
             <Button
               type="submit"
