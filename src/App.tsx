@@ -1,37 +1,45 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider, Flex } from '@chakra-ui/react'
-import UserProvider, { UserContext } from './context/UserContext'
+import UserProvider, {
+  defaultUserState,
+  UserContext,
+  UserContextInterface,
+  UserIfc,
+} from './context/UserContext'
 import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
 import { APIEndPointsContext } from './context/APIContext'
+import { redirect } from 'react-router'
 
 function App() {
   const { apiEndPoints } = useContext(APIEndPointsContext)
-  const { user, setUser } = useContext(UserContext)
+  const [user, setUser] = useState<UserIfc>({})
+  const [loggedIn, setLoggedIn] = useState(false)
   const LoginFunc = () => {
     console.log('Users Context Data: ', user)
     fetch(apiEndPoints.login) // Replace with your API endpoint
       .then((response) => response.json())
       .then((data) => {
+        console.log('Setting Data')
         console.log(data)
-        setUser(data)
+        setUser(data as UserIfc)
+        console.log('Users Context Data after set: ', user)
+        setLoggedIn(true)
+        console.log('doing redirect')
+        redirect('/')
       })
       .catch((error) => {
         console.error('Error:', error)
       })
   }
+  const LogoutFunc = () => {
+    console.log('Logging Out')
+
+    setLoggedIn(false)
+  }
   const UserInfoFunc = () => {
-    console.log('Users Context Data: ', user)
-    fetch(apiEndPoints.login) // Replace with your API endpoint
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        setUser(data)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+    console.log('UserInfo Function')
   }
   return (
     <UserProvider>
@@ -45,9 +53,10 @@ function App() {
         >
           <BrowserRouter>
             <div className="app">
-              <AppNavigation />
+              <AppNavigation loggedIn={loggedIn} OnLogout={LogoutFunc} />
               <AppRoutes
                 LoginFunc={LoginFunc}
+                LoggedIn={loggedIn}
                 onUserInfoSubmit={UserInfoFunc}
               />
             </div>

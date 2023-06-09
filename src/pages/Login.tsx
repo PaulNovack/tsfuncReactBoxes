@@ -21,10 +21,8 @@ const Login = ({Login}:{Login: () => void}) => {
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
   const [ localUser, setLocalUser] = useState<UserIfc>({})
-  console.log('User Here: ', user.name)
   useEffect(() => {
-    console.log('user: ', user)
-
+    console.log("In use effect in Login.tsx user data: ", user)
   }, [user])
   const handleShowClick = () => setShowPassword(!showPassword)
   const handleLoginClick = () => {

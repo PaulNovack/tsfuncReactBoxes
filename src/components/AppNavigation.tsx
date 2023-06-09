@@ -5,7 +5,13 @@ import { Button, HStack, Text } from '@chakra-ui/react'
 import { UserIfc } from '../context/UserContext'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const AppNavigation = () => {
+const AppNavigation = ({
+  loggedIn,
+  OnLogout,
+}: {
+  loggedIn: boolean
+  OnLogout: () => void
+}) => {
   const [user, setUser] = useState<UserIfc>({})
   useEffect(() => {
     console.log('Updated User Info displayed from AppNavigation')
@@ -16,7 +22,7 @@ const AppNavigation = () => {
         <Link to={'/'}>Home {user.name}</Link>
       </Button>
       <Text>{user.name}</Text>
-      {user.name === undefined ? (
+      {loggedIn === false ? (
         <>
           <Button colorScheme="teal">
             <Link to={'/login'}>Login</Link>
@@ -31,8 +37,8 @@ const AppNavigation = () => {
           <Button colorScheme="teal">
             <Link to={'/items'}>Items</Link>
           </Button>
-          <Button colorScheme="teal">
-            <Link to={'/logout'}>Logout</Link>
+          <Button colorScheme="teal" onClick={OnLogout}>
+            Logout
           </Button>
         </>
       )}

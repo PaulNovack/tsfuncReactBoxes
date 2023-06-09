@@ -15,7 +15,7 @@ export interface UserIfc {
   cellPhone?: string
   accessToken?: string | null
   completed?: number
-  Boxes?: BoxesIfc[] | null
+  BoxesArr?: BoxesIfc[] | null
 }
 
 export interface BoxesIfc {
@@ -25,7 +25,7 @@ export interface BoxesIfc {
   picture?: string | null
   weight?: number | null
   created_at?: string | null
-  items: ItemsIfc[] | null
+  itemsArr: ItemsIfc[] | null
 }
 
 export interface ItemsIfc {
@@ -54,7 +54,7 @@ type UserProviderProps = {
   children: React.ReactNode
 }
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext(defaultUserState)
+export const UserContext = createContext<UserContextInterface>(defaultUserState)
 
 export default function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<UserIfc>({})
