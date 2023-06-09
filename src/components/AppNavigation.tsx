@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Button, HStack, Text } from '@chakra-ui/react'
-import { User } from '../context/UserContext'
+import { UserIfc } from '../context/UserContext'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const AppNavigation = () => {
-  const [user, setUser] = useState<User>({})
+const AppNavigation = ({
+  loggedIn,
+  OnLogout,
+}: {
+  loggedIn: boolean
+  OnLogout: () => void
+}) => {
+  const [user, setUser] = useState<UserIfc>({})
+  useEffect(() => {
+    console.log('Updated User Info displayed from AppNavigation')
+  }, [user])
   return (
     <HStack className="topNav">
       <Button margin="1rem" colorScheme="teal">
         <Link to={'/'}>Home {user.name}</Link>
       </Button>
       <Text>{user.name}</Text>
-      {user.name === undefined ? (
+      {!loggedIn ? (
         <>
           <Button colorScheme="teal">
             <Link to={'/login'}>Login</Link>
@@ -28,8 +37,8 @@ const AppNavigation = () => {
           <Button colorScheme="teal">
             <Link to={'/items'}>Items</Link>
           </Button>
-          <Button colorScheme="teal">
-            <Link to={'/logout'}>Logout</Link>
+          <Button colorScheme="teal" onClick={OnLogout}>
+            Logout
           </Button>
         </>
       )}

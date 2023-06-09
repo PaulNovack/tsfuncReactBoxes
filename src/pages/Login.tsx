@@ -12,20 +12,17 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
-import { UserContext } from '../context/UserContext'
-import {useFetch} from 'use-http'
+import { UserContext, UserIfc } from '../context/UserContext'
+import { useFetch } from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const Login = () => {
+const Login = ({ AppLogin }: { AppLogin: () => void }) => {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
-  console.log('User Here: ', user.name)
+  const [localUser, setLocalUser] = useState<UserIfc>({})
   useEffect(() => {
-    // This effect will run whenever the myContext value changes
-    // and trigger a re-render by updating the forceUpdate state.
-    console.log('UpdateForced 2')
-    console.log(user)
+    console.log('In use effect in Login.tsx user data: ', user)
   }, [user])
   const handleShowClick = () => setShowPassword(!showPassword)
   const handleLoginClick = () => {
@@ -59,29 +56,27 @@ const Login = () => {
             boxShadow="md"
           >
             <form>
-            <FormControl>
-
-              <InputGroup>
-                <InputLeftElement pointerEvents="none" />
-                <Input type="email" placeholder="email address" />
-              </InputGroup>
-            </FormControl>
-            <FormControl>
-              <InputGroup>
-                <InputLeftElement pointerEvents="none" color="gray.300" />
-                <Input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
-                  autoComplete='password'
-                />
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                    {showPassword ? 'Hide' : 'Show'}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-
-            </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none" />
+                  <Input type="email" placeholder="email address" />
+                </InputGroup>
+              </FormControl>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none" color="gray.300" />
+                  <Input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Password"
+                    autoComplete="password"
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                      {showPassword ? 'Hide' : 'Show'}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
             </form>
             <Button
               type="submit"
