@@ -14,7 +14,7 @@ import { redirect } from 'react-router'
 
 function App() {
   const { apiEndPoints } = useContext(APIEndPointsContext)
-  const [user, setUser] = useState<UserIfc>({})
+  const { user, setUser } = useContext(UserContext)
   const [loggedIn, setLoggedIn] = useState(false)
   const LoginFunc = () => {
     console.log('Users Context Data: ', user)
@@ -26,8 +26,6 @@ function App() {
         setUser(data as UserIfc)
         console.log('Users Context Data after set: ', user)
         setLoggedIn(true)
-        console.log('doing redirect')
-        redirect('/')
       })
       .catch((error) => {
         console.error('Error:', error)

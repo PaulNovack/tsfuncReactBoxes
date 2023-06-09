@@ -1,5 +1,11 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react'
 
+export function GetUTCTime(): string {
+  const now: Date = new Date()
+  const utcTime: string = now.toISOString()
+  return utcTime
+}
+
 export interface UserIfc {
   name?: string
   email?: string
@@ -20,26 +26,43 @@ export interface UserIfc {
 
 export interface BoxesIfc {
   id: number
-  name?: string | null
+  name: string | null
   description: string | null
-  picture?: string | null
-  weight?: number | null
-  created_at?: string | null
+  picture: string | null
+  weight: number | null
   itemsArr: ItemsIfc[] | null
+  created_at: string | null
 }
 
 export interface ItemsIfc {
   id: number
-  name?: string | null
-  description?: string | null
-  quantity?: number | null
-  picture?: string | null
+  name: string | null
+  description: string | null
+  quantity: number | null
+  picture: string | null
   created_at?: string | null
 }
 
 export interface UserContextInterface {
   user: UserIfc
   setUser: Dispatch<SetStateAction<UserIfc>>
+}
+export const defaultBox = {
+  id: 0,
+  name: '',
+  description: '',
+  picture: '',
+  weight: 0,
+  itemsArr: null,
+  created_at: GetUTCTime(),
+}
+export const defaultItem = {
+  id: 0,
+  name: '',
+  description: '',
+  quantity: '',
+  picture: '',
+  created_at: GetUTCTime(),
 }
 
 export const defaultUserState = {
@@ -54,7 +77,7 @@ type UserProviderProps = {
   children: React.ReactNode
 }
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export const UserContext = createContext<UserContextInterface>(defaultUserState)
+export const UserContext = createContext(defaultUserState)
 
 export default function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<UserIfc>({})

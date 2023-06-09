@@ -21,7 +21,7 @@ const AppRoutes = ({
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login Login={LoginFunc} />} />
+      <Route path="/login" element={<Login AppLogin={LoginFunc} />} />
       <Route path="/boxes" element={<BoxList />} />
       <Route path="/box" element={<Boxe />} />
       <Route path="/items" element={<Items />} />
