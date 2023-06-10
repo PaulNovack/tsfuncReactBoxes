@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import {
   Heading,
   Input,
@@ -12,15 +18,19 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
-import { UserContext } from '../context/UserContext'
+import { UserContext, UserIfc } from '../context/UserContext'
 import { useFetch } from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-const Login = () => {
+export default function Login({
+  ParentUpdate,
+}: {
+  ParentUpdate: (user: UserIfc) => void
+}) {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
-  console.log('User Here: ', user.name)
+  console.log('User From Context: ', user)
   useEffect(() => {
     // This effect will run whenever the myContext value changes
     // and trigger a re-render by updating the forceUpdate state.
@@ -34,7 +44,8 @@ const Login = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        setUser(data)
+        //setUser(data)
+        ParentUpdate(user)
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -105,5 +116,3 @@ const Login = () => {
     </>
   )
 }
-
-export default Login
