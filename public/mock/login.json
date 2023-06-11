@@ -18,70 +18,70 @@
           "id": 24,
           "name": "New Box 1",
           "weight": 10.0,
-          "picture": null,
+          "picture": "3.jpg",
           "created_at": "2022-06-17 18:20:42",
           "itemArr": [
             {
               "id": 10,
               "name": "Item 1",
               "quantity": 1,
-              "picture": "picture1.jpg",
+              "picture": "1.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 19,
               "name": "Item 10",
               "quantity": 1,
-              "picture": "picture10.jpg",
+              "picture": "2.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 28,
               "name": "Item 19",
               "quantity": 1,
-              "picture": "picture19.jpg",
+              "picture": "3.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 37,
               "name": "Item 28",
               "quantity": 1,
-              "picture": "picture28.jpg",
+              "picture": "28.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 46,
               "name": "Item 37",
               "quantity": 1,
-              "picture": "picture37.jpg",
+              "picture": "37.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 55,
               "name": "Item 46",
               "quantity": 1,
-              "picture": "picture46.jpg",
+              "picture": "6.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 64,
               "name": "Item 55",
               "quantity": 1,
-              "picture": "picture55.jpg",
+              "picture": "55.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 73,
               "name": "Item 64",
               "quantity": 1,
-              "picture": "picture64.jpg",
+              "picture": "64.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 82,
               "name": "Item 73",
               "quantity": 1,
-              "picture": "picture73.jpg",
+              "picture": "73.jpg",
               "created_at": "2023-06-05 10:55:48"
             }
           ]
@@ -90,70 +90,70 @@
           "id": 29,
           "name": "New Box 13",
           "weight": 10.0,
-          "picture": null,
+          "picture": "2.jpg",
           "created_at": "2022-06-17 18:20:42",
           "itemArr": [
             {
               "id": 10,
               "name": "Item 1",
               "quantity": 1,
-              "picture": "picture1.jpg",
+              "picture": "1.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 19,
               "name": "Item 10",
               "quantity": 1,
-              "picture": "picture10.jpg",
+              "picture": "10.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 28,
               "name": "Item 19",
               "quantity": 1,
-              "picture": "picture19.jpg",
+              "picture": "19.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 37,
               "name": "Item 28",
               "quantity": 1,
-              "picture": "picture28.jpg",
+              "picture": "28.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 46,
               "name": "Item 37",
               "quantity": 1,
-              "picture": "picture37.jpg",
+              "picture": "37.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 55,
               "name": "Item 46",
               "quantity": 1,
-              "picture": "picture46.jpg",
+              "picture": "46.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 64,
               "name": "Item 55",
               "quantity": 1,
-              "picture": "picture55.jpg",
+              "picture": "55.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 73,
               "name": "Item 64",
               "quantity": 1,
-              "picture": "picture64.jpg",
+              "picture": "64.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 82,
               "name": "Item 73",
               "quantity": 1,
-              "picture": "picture73.jpg",
+              "picture": "73.jpg",
               "created_at": "2023-06-05 10:55:48"
             }
           ]
@@ -162,70 +162,70 @@
           "id": 25,
           "name": "New Box 2",
           "weight": 32.0,
-          "picture": null,
+          "picture": "1.jpg",
           "created_at": "2022-06-17 18:20:43",
           "itemArr": [
             {
               "id": 11,
               "name": "Item 2",
               "quantity": 1,
-              "picture": "picture2.jpg",
+              "picture": "2.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 20,
               "name": "Item 11",
               "quantity": 1,
-              "picture": "picture11.jpg",
+              "picture": "11.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 29,
               "name": "Item 20",
               "quantity": 1,
-              "picture": "picture20.jpg",
+              "picture": "20.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 38,
               "name": "Item 29",
               "quantity": 1,
-              "picture": "picture29.jpg",
+              "picture": "29.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 47,
               "name": "Item 38",
               "quantity": 1,
-              "picture": "picture38.jpg",
+              "picture": "38.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 56,
               "name": "Item 47",
               "quantity": 1,
-              "picture": "picture47.jpg",
+              "picture": "47.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 65,
               "name": "Item 56",
               "quantity": 1,
-              "picture": "picture56.jpg",
+              "picture": "56.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 74,
               "name": "Item 65",
               "quantity": 1,
-              "picture": "picture65.jpg",
+              "picture": "65.jpg",
               "created_at": "2023-06-05 10:55:48"
             },
             {
               "id": 83,
               "name": "Item 74",
               "quantity": 1,
-              "picture": "picture74.jpg",
+              "picture": "74.jpg",
               "created_at": "2023-06-05 10:55:48"
             }
           ]

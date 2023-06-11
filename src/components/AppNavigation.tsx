@@ -1,12 +1,5 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { BrowserRouter, useNavigate } from 'react-router-dom'
 import { Button, HStack, Text } from '@chakra-ui/react'
 import { defaultUser, UserContext, UserIfc } from '../context/UserContext'
 

@@ -1,10 +1,4 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   Heading,
   Input,
@@ -18,11 +12,10 @@ import {
   InputRightElement,
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
-import { UserContext, UserIfc } from '../context/UserContext'
-import { useFetch } from 'use-http'
+import { UserContext } from '../context/UserContext'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export default function Login({ userLocal }: { userLocal: UserIfc }) {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
@@ -97,6 +90,7 @@ export default function Login({ userLocal }: { userLocal: UserIfc }) {
             >
               Login
             </Button>
+            gps
           </Stack>
         </Box>
         <Box
