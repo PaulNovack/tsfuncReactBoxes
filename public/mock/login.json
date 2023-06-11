@@ -13,14 +13,14 @@
       "toState": "NY",
       "toZipCode": "10001",
       "cellPhone": "512-345-9876",
-      "boxes": [
+      "BoxArr": [
         {
           "id": 24,
           "name": "New Box 1",
           "weight": 10.0,
           "picture": null,
           "created_at": "2022-06-17 18:20:42",
-          "items": [
+          "itemArr": [
             {
               "id": 10,
               "name": "Item 1",
@@ -92,7 +92,7 @@
           "weight": 10.0,
           "picture": null,
           "created_at": "2022-06-17 18:20:42",
-          "items": [
+          "itemArr": [
             {
               "id": 10,
               "name": "Item 1",
@@ -164,7 +164,7 @@
           "weight": 32.0,
           "picture": null,
           "created_at": "2022-06-17 18:20:43",
-          "items": [
+          "itemArr": [
             {
               "id": 11,
               "name": "Item 2",

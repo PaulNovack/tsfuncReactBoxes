@@ -22,11 +22,7 @@ import { UserContext, UserIfc } from '../context/UserContext'
 import { useFetch } from 'use-http'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-export default function Login({
-  ParentUpdate,
-}: {
-  ParentUpdate: (user: UserIfc) => void
-}) {
+export default function Login({ userLocal }: { userLocal: UserIfc }) {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
@@ -44,8 +40,8 @@ export default function Login({
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        //setUser(data)
-        ParentUpdate(user)
+        setUser(data)
+        //ParentUpdate(user)
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -99,7 +95,7 @@ export default function Login({
               width="full"
               onClick={handleLoginClick}
             >
-              Login {user.name}
+              Login
             </Button>
           </Stack>
         </Box>

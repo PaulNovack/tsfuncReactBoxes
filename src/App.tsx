@@ -10,7 +10,6 @@ import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
 
 function App() {
-  const [AppUser, setAppUser] = useState<UserIfc>(defaultUser)
   const { user, setUser } = useContext(UserContext)
   useEffect(() => {
     console.log('App.tsx useEffect triggered')
@@ -32,16 +31,8 @@ function App() {
         >
           <BrowserRouter>
             <div className="app">
-              <AppNavigation
-                appUser={AppUser}
-                setAppUser={setAppUser}
-                ParentUpdate={ParentUpdate}
-              />
-              <AppRoutes
-                appUser={AppUser}
-                setAppUser={setAppUser}
-                ParentUpdate={ParentUpdate}
-              />
+              <AppNavigation userLocal={user} />
+              <AppRoutes userLocal={user} />
             </div>
           </BrowserRouter>
         </Flex>
