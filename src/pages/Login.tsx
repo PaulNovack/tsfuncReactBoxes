@@ -13,12 +13,14 @@ import {
 } from '@chakra-ui/react'
 import { APIEndPointsContext } from '../context/APIContext'
 import { UserContext } from '../context/UserContext'
+import {useNavigate} from "react-router-dom"
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false)
   const { apiEndPoints } = useContext(APIEndPointsContext)
   const { user, setUser } = useContext(UserContext)
+  const navigate = useNavigate()
   console.log('User From Context: ', user)
   useEffect(() => {
     // This effect will run whenever the myContext value changes
@@ -34,6 +36,7 @@ export default function Login() {
       .then((data) => {
         console.log(data)
         setUser(data)
+        navigate('/')
         //ParentUpdate(user)
       })
       .catch((error) => {
