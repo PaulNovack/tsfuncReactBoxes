@@ -15,7 +15,6 @@ export default function AppNavigation({ userLocal }: { userLocal: UserIfc }) {
       <Button margin="1rem" colorScheme="teal">
         <Link to={'/'}>Home {userLocal.name}</Link>
       </Button>
-      <Text>{user.name}</Text>
       {user.name === '' ? (
         <>
           <Button colorScheme="teal">

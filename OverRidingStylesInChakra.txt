@@ -1,0 +1,36 @@
+Chakra styling / themes
+
+Change styles by style props
+
+import {extendtheme} from '@chakra/theme-tools'
+
+
+export const myNewTheme = extendTheme({
+  colors: {
+  	primary: blue
+  	secondary: green
+  	highlight: yellow
+  },
+  components: {
+    Input: {
+      sizes: {
+        md: {
+          borderRadius: none
+        }
+      }
+    }
+  }
+    
+})
+
+<ChakraProvider resetCSS theme={myNewTheme}>
+
+</ChakraProvider>
+
+
+
+Different Lesson
+
+Good example of overriding style defaults : https://egghead.io/lessons/react-override-the-built-in-component-s-styles-in-chakra-ui
+
+
