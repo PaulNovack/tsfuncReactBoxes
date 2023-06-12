@@ -4,7 +4,6 @@ import Login from '../pages/Login'
 import Logout from '../pages/Logout'
 import Boxes from '../pages/Boxes'
 import Items from '../pages/Items'
-import Item from './Item'
 import UserInfo from '../pages/UserInfo'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention

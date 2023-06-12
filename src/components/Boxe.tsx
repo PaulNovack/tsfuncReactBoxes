@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 function Boxe({ box }: { box: BoxIfc }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [name, setName] = useState<string>(box.name)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [weight, setWeight] = useState<number>(box.weight)
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -41,7 +43,7 @@ function Boxe({ box }: { box: BoxIfc }) {
             />
           </GridItem>
           <GridItem colSpan={1}>
-            <Text padding={'.5rem'} textAlign={'right'} fontSize="sm">
+            <Text padding={'.5rem'} textAlign={'left'} fontSize="sm">
               Weight:
             </Text>
           </GridItem>
@@ -89,7 +91,7 @@ function Boxe({ box }: { box: BoxIfc }) {
             />
           </GridItem>
           <GridItem colSpan={1}>
-            <Text padding={'.5rem'} textAlign={'right'} fontSize="sm">
+            <Text padding={'.5rem'} textAlign={'left'} fontSize="sm">
               Weight:
             </Text>
           </GridItem>

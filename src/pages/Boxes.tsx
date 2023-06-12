@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { BoxIfc, UserContext } from '../context/UserContext'
 import Boxe from '../components/Boxe'
-import { Grid, GridItem } from '@chakra-ui/react'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 function Boxes() {

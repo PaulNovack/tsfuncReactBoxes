@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Button, Grid, GridItem, Image, Input, Text } from '@chakra-ui/react'
-import { Link } from 'react-router-dom'
+import {  Grid, GridItem, Image, Input, Text } from '@chakra-ui/react'
 import { ItemIfc } from '../context/UserContext'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 function Item({ item }: { item: ItemIfc }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [name, setName] = useState<string>(item.name)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [weight, setWeight] = useState<number>(item.quantity)
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -41,7 +42,7 @@ function Item({ item }: { item: ItemIfc }) {
             />
           </GridItem>
           <GridItem colSpan={1}>
-            <Text padding={'.4rem'} textAlign={'right'} fontSize="sm">
+            <Text padding={'.4rem'} textAlign={'left'} fontSize="sm">
               Quantity:
             </Text>
           </GridItem>
@@ -86,7 +87,7 @@ function Item({ item }: { item: ItemIfc }) {
             />
           </GridItem>
           <GridItem colSpan={1}>
-            <Text padding={'.4rem'} textAlign={'right'} fontSize="sm">
+            <Text padding={'.4rem'} textAlign={'left'} fontSize="sm">
               Quantity:
             </Text>
           </GridItem>
