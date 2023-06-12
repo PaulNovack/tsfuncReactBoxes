@@ -19,8 +19,12 @@ function Boxe({ box, index }: { box: BoxIfc; index: number }) {
   return (
     <>
       <BrowserView>
-        <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(6, 1fr)" key={index}>
-          <GridItem rowSpan={4} colSpan={2} >
+        <Grid
+          templateRows="repeat(2, 1fr)"
+          templateColumns="repeat(6, 1fr)"
+          key={index}
+        >
+          <GridItem rowSpan={4} colSpan={2}>
             <Image
               padding={'.2rem'}
               src={`/boxes-images/${box.picture}`}
@@ -109,7 +113,7 @@ function Boxe({ box, index }: { box: BoxIfc; index: number }) {
               onChange={handleWeightChange}
             />{' '}
             <Button colorScheme="teal">
-              <Link to={`/items?box_id=${box.id}`}>View Items</Link>
+              <Link to={`/items?box_id=${index}`}>View Items</Link>
             </Button>
           </GridItem>
         </Grid>

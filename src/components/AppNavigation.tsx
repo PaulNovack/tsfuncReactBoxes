@@ -27,11 +27,8 @@ export default function AppNavigation({ userLocal }: { userLocal: UserIfc }) {
           <Button colorScheme="teal">
             <Link to={'/boxes'}>Boxes</Link>
           </Button>
-          <Button colorScheme="teal">
-            <Link to={'/items'}>Items</Link>
-          </Button>
           <Button colorScheme="teal" onClick={Logout}>
-            Logout
+              <Link to={'/'}>Logout</Link>
           </Button>
         </>
       )}
