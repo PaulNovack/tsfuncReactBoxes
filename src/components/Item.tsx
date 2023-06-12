@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {  Grid, GridItem, Image, Input, Text } from '@chakra-ui/react'
+import { Grid, GridItem, Image, Input, Text } from '@chakra-ui/react'
 import { ItemIfc } from '../context/UserContext'
 import { BrowserView, MobileView } from 'react-device-detect'
 

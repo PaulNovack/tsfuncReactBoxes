@@ -4,7 +4,7 @@ import { GridItem, Grid, Image, Input, Button, Text } from '@chakra-ui/react'
 import { Link } from 'react-router-dom'
 import { BrowserView, MobileView } from 'react-device-detect'
 
-function Boxe({ box }: { box: BoxIfc }) {
+function Boxe({ box, index }: { box: BoxIfc; index: number }) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [name, setName] = useState<string>(box.name)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -19,8 +19,8 @@ function Boxe({ box }: { box: BoxIfc }) {
   return (
     <>
       <BrowserView>
-        <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(6, 1fr)">
-          <GridItem rowSpan={4} colSpan={2}>
+        <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(6, 1fr)" key={index}>
+          <GridItem rowSpan={4} colSpan={2} >
             <Image
               padding={'.2rem'}
               src={`/boxes-images/${box.picture}`}
@@ -61,7 +61,7 @@ function Boxe({ box }: { box: BoxIfc }) {
               onChange={handleWeightChange}
             />{' '}
             <Button colorScheme="teal">
-              <Link to={`/items?box_id=${box.id}`}>View Items</Link>
+              <Link to={`/items?box_id=${index}`}>View Items</Link>
             </Button>
           </GridItem>
         </Grid>

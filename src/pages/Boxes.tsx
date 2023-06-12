@@ -11,9 +11,9 @@ function Boxes() {
       <MobileView>
         <strong>List of Boxes</strong>
         {user.BoxArr ? (
-          user.BoxArr.map((box: BoxIfc) => (
+          user.BoxArr.map((box: BoxIfc, index) => (
             <>
-              <Boxe box={box} />
+              <Boxe box={box} index={index} />
             </>
           ))
         ) : (
@@ -23,9 +23,9 @@ function Boxes() {
       <BrowserView>
         <strong>List of Boxes</strong>
         {user.BoxArr ? (
-          user.BoxArr.map((box: BoxIfc) => (
+          user.BoxArr.map((box: BoxIfc, index: number) => (
             <>
-              <Boxe box={box} />
+              <Boxe box={box} index={index} />
             </>
           ))
         ) : (

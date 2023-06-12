@@ -1,18 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import {
-  ChakraProvider,
-  Flex,
-    Container,
-} from '@chakra-ui/react'
+import { ChakraProvider, Flex, Container } from '@chakra-ui/react'
 import UserProvider, { UserContext } from './context/UserContext'
 import AppRoutes from './components/AppRoutes'
 import AppNavigation from './components/AppNavigation'
-import {
-  BrowserView,
-  MobileView,
-  isMobile,
-} from 'react-device-detect'
+import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 import './App.css'
 
 function App() {

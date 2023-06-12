@@ -11,23 +11,25 @@ function Items() {
   const box_id: number = !isNaN(parseInt(searchParams.get('box_id') as string))
     ? parseInt(searchParams.get('box_id') as string)
     : 0
-
+  console.log('Box_id: ', box_id)
   return (
     <div className="app">
       <MobileView>
         <strong>List of Items in Box:</strong>{' '}
-        {user.BoxArr && user.BoxArr[box_id].name ? user.BoxArr[0].name : <></>}
-        {user.BoxArr && user.BoxArr[0].itemArr ? (
-          user.BoxArr[0].itemArr.map((item: ItemIfc) => <Item item={item} />)
+        {user.BoxArr && user.BoxArr[box_id].name ? user.BoxArr[box_id].name : <></>}
+        {user.BoxArr && user.BoxArr[box_id].itemArr ? (
+          user.BoxArr[box_id].itemArr.map((item: ItemIfc) => (
+            <Item item={item} />
+          ))
         ) : (
           <></>
         )}
       </MobileView>
       <BrowserView>
         <strong>List of Items in Box:</strong>{' '}
-        {user.BoxArr && user.BoxArr[box_id].name ? user.BoxArr[0].name : <></>}
-        {user.BoxArr && user.BoxArr[0].itemArr ? (
-          user.BoxArr[0].itemArr.map((item: ItemIfc) => <Item item={item} />)
+        {user.BoxArr && user.BoxArr[box_id].name ? user.BoxArr[box_id].name : <></>}
+        {user.BoxArr && user.BoxArr[box_id].itemArr ? (
+          user.BoxArr[box_id].itemArr.map((item: ItemIfc) => <Item item={item} />)
         ) : (
           <></>
         )}
