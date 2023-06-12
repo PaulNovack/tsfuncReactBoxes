@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { Button, HStack, Text } from '@chakra-ui/react'
 import { defaultUser, UserContext, UserIfc } from '../context/UserContext'
 
@@ -7,6 +7,7 @@ import { defaultUser, UserContext, UserIfc } from '../context/UserContext'
 export default function AppNavigation({ userLocal }: { userLocal: UserIfc }) {
   // const [user, setUser] = useState<UserIfc>(defaultUser)
   const { user, setUser } = useContext(UserContext)
+    const navigate = useNavigate()
   function Logout() {
     setUser(defaultUser)
   }
